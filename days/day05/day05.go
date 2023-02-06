@@ -2,20 +2,15 @@ package day05
 
 import (
 	"aoc2021/utils"
-	"fmt"
 	"strings"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day05.txt")
-	value := firstStar(content)
-	fmt.Printf("day  5.1 - number of points with overlaps: %d\n", value)
+	utils.Star(5, 1, "number of points with overlaps", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day05.txt")
-	value := secondStar(content)
-	fmt.Printf("day  5.2 - number of points with overlaps: %d\n", value)
+	utils.Star(5, 2, "number of points with overlaps", secondStar)
 }
 
 func firstStar(content string) int {

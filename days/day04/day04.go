@@ -2,20 +2,15 @@ package day04
 
 import (
 	"aoc2021/utils"
-	"fmt"
 	"strings"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day04.txt")
-	value := firstStar(content)
-	fmt.Printf("day  4.1 - final score (first board): %d\n", value)
+	utils.Star(4, 1, "final score (first board)", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day04.txt")
-	value := secondStar(content)
-	fmt.Printf("day  4.2 - final score (last board): %d\n", value)
+	utils.Star(4, 2, "final score (last board)", secondStar)
 }
 
 func firstStar(content string) int {

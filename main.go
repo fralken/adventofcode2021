@@ -16,6 +16,16 @@ import (
 	"aoc2021/days/day13"
 	"aoc2021/days/day14"
 	"aoc2021/days/day15"
+	"aoc2021/days/day16"
+	"aoc2021/days/day17"
+	"aoc2021/days/day18"
+	"aoc2021/days/day19"
+	"aoc2021/days/day20"
+	"aoc2021/days/day21"
+	"aoc2021/days/day22"
+	"aoc2021/days/day23"
+	"aoc2021/days/day24"
+	"aoc2021/days/day25"
 	"fmt"
 	"os"
 	"strconv"
@@ -38,6 +48,16 @@ func main() {
 		{day13.FirstStar, day13.SecondStar},
 		{day14.FirstStar, day14.SecondStar},
 		{day15.FirstStar, day15.SecondStar},
+		{day16.FirstStar, day16.SecondStar},
+		{day17.FirstStar, day17.SecondStar},
+		{day18.FirstStar, day18.SecondStar},
+		{day19.FirstStar, day19.SecondStar},
+		{day20.FirstStar, day20.SecondStar},
+		{day21.FirstStar, day21.SecondStar},
+		{day22.FirstStar, day22.SecondStar},
+		{day23.FirstStar, day23.SecondStar},
+		{day24.FirstStar, day24.SecondStar},
+		{day25.FirstStar, day25.SecondStar},
 	}
 
 	if len(os.Args) > 1 {

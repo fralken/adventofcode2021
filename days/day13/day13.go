@@ -2,20 +2,15 @@ package day13
 
 import (
 	"aoc2021/utils"
-	"fmt"
 	"strings"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day13.txt")
-	value := firstStar(content)
-	fmt.Printf("day 13.1 - visible dots after 1 fold: %d\n", value)
+	utils.Star(13, 1, "visible dots after 1 fold", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day13.txt")
-	value := secondStar(content)
-	fmt.Printf("day 13.2 - code:\n%s\n", value)
+	utils.Star(13, 2, "code", secondStar)
 }
 
 func firstStar(content string) int {

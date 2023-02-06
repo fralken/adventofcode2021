@@ -2,21 +2,16 @@ package day10
 
 import (
 	"aoc2021/utils"
-	"fmt"
 	"sort"
 	"strings"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day10.txt")
-	value := firstStar(content)
-	fmt.Printf("day 10.1 - score of syntax errors: %d\n", value)
+	utils.Star(10, 1, "score of syntax errors", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day10.txt")
-	value := secondStar(content)
-	fmt.Printf("day 10.2 - middle score: %d\n", value)
+	utils.Star(10, 2, "middle score", secondStar)
 }
 
 func firstStar(content string) int {

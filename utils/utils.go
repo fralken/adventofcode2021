@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"os"
 	"strconv"
 )
@@ -24,4 +25,9 @@ func StringsToInts(strs []string) []int {
 func StringToInt(str string) int {
 	i, _ := strconv.Atoi(str)
 	return i
+}
+
+func Star[T int|string](day int, star int, msg string, run func(string) T) {
+	content := ReadFile(fmt.Sprintf("./input/day%02d.txt", day))
+	fmt.Printf("day %2d.%d - %s: %v\n", day, star, msg, run(content))
 }

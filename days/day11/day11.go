@@ -2,20 +2,15 @@ package day11
 
 import (
 	"aoc2021/utils"
-	"fmt"
 	"strings"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day11.txt")
-	value := firstStar(content)
-	fmt.Printf("day 11.1 - flashes after 100 steps: %d\n", value)
+	utils.Star(11, 1, "flashes after 100 steps", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day11.txt")
-	value := secondStar(content)
-	fmt.Printf("day 11.2 - step when flashing simultaneously: %d\n", value)
+	utils.Star(11, 2, "step when flashing simultaneously", secondStar)
 }
 
 func firstStar(content string) int {

@@ -2,20 +2,15 @@ package day01
 
 import (
 	"aoc2021/utils"
-	"fmt"
 	"strings"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day01.txt")
-	value := firstStar(content)
-	fmt.Printf("day  1.1 - measurements larger than the previous one: %d\n", value)
+	utils.Star(1, 1, "measurements larger than the previous one", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day01.txt")
-	value := secondStar(content)
-	fmt.Printf("day  1.2 - measurements of sliding windows larger than the previous one: %d\n", value)
+	utils.Star(1, 2, "measurements of sliding windows larger than the previous one", secondStar)
 }
 
 func firstStar(content string) int {

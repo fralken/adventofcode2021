@@ -2,21 +2,16 @@ package day03
 
 import (
 	"aoc2021/utils"
-	"fmt"
 	"strconv"
 	"strings"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day03.txt")
-	value := firstStar(content)
-	fmt.Printf("day  3.1 - power consumption: %d\n", value)
+	utils.Star(3, 1, "power consumption", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day03.txt")
-	value := secondStar(content)
-	fmt.Printf("day  3.2 - life support rating: %d\n", value)
+	utils.Star(3, 2, "life support rating", secondStar)
 }
 
 func firstStar(content string) int {

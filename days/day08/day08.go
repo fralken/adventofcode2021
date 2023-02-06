@@ -2,21 +2,16 @@ package day08
 
 import (
 	"aoc2021/utils"
-	"fmt"
 	"reflect"
 	"strings"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day08.txt")
-	value := firstStar(content)
-	fmt.Printf("day  8.1 - number of 1, 4, 7, 8 digits: %d\n", value)
+	utils.Star(8, 1, "number of 1, 4, 7, 8 digits", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day08.txt")
-	value := secondStar(content)
-	fmt.Printf("day  8.2 - sum of output values: %d\n", value)
+	utils.Star(8, 2, "sum of output values", secondStar)
 }
 
 func firstStar(content string) int {

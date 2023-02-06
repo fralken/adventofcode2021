@@ -2,20 +2,16 @@ package day15
 
 import (
 	"aoc2021/utils"
-	"fmt"
+	"container/heap"
 	"strings"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day15.txt")
-	value := firstStar(content)
-	fmt.Printf("day 15.1 - lowest total risk: %d\n", value)
+	utils.Star(15, 1, "lowest total risk", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day15.txt")
-	value := secondStar(content)
-	fmt.Printf("day 15.2 - lowest total risk: %d\n", value)
+	utils.Star(15, 2, "lowest total risk", secondStar)
 }
 
 func firstStar(content string) int {
@@ -30,6 +26,13 @@ func secondStar(content string) int {
 
 type coord [2]int
 
+type path struct {
+	pos coord
+	risk int
+}
+
+type paths []*path
+
 func makeCave(content string) [][]int {
 	lines := strings.Split(content, "\n")
 	cave := make([][]int, len(lines))
@@ -40,7 +43,8 @@ func makeCave(content string) [][]int {
 }
 
 func findPath(risk func(int, int) int, h int, w int) int {
-	paths := make(map[coord]int)
+	p := paths{}
+	heap.Init(&p)
 	visited := make(map[coord]bool)
 	visited[coord{0, 0}] = true
 	neighbours := []coord{{-1, 0}, {0, -1}, {0, 1}, {1, 0}}
@@ -52,29 +56,14 @@ func findPath(risk func(int, int) int, h int, w int) int {
 				k := coord{y, x}
 				if !visited[k] {
 					visited[k] = true
-					w := v + risk(y, x)
-					if paths[k] == 0 || paths[k] > w {
-						paths[k] = w
-					}
+					heap.Push(&p, &path{ k, v + risk(y, x) })
 				}
 			}
 		}
-		i, j, v = lowest(paths)
+		path := heap.Pop(&p).(*path)
+		i, j, v = path.pos[0], path.pos[1], path.risk
 	}
 	return v
-}
-
-func lowest(paths map[coord]int) (i int, j int, min int) {
-	var c coord
-	for k, v := range paths {
-		if min == 0 || min > v {
-			c = k
-			min = v
-		}
-	}
-	delete(paths, c)
-	i, j = c[0], c[1]
-	return
 }
 
 func createRiskFunc1(content string) (risk func(int, int) int, h int, w int) {
@@ -96,4 +85,28 @@ func createRiskFunc2(content string) (risk func(int, int) int, h int, w int) {
 	}
 	h, w = (5*ch)-1, (5*cw)-1
 	return
+}
+
+func (p paths) Len() int { return len(p) }
+
+func (p paths) Less(i, j int) bool {
+	return p[i].risk < p[j].risk
+}
+
+func (p paths) Swap(i, j int) {
+	p[i], p[j] = p[j], p[i]
+}
+
+func (p *paths) Push(x any) {
+	item := x.(*path)
+	*p = append(*p, item)
+}
+
+func (p *paths) Pop() any {
+	old := *p
+	n := len(old)
+	item := old[n-1]
+	old[n-1] = nil  // avoid memory leak
+	*p = old[:n-1]
+	return item
 }

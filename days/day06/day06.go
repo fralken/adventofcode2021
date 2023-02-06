@@ -2,20 +2,15 @@ package day06
 
 import (
 	"aoc2021/utils"
-	"fmt"
 	"strings"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day06.txt")
-	value := firstStar(content)
-	fmt.Printf("day  6.1 - lanternfishes after 80 days: %d\n", value)
+	utils.Star(6, 1, "lanternfishes after 80 days", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day06.txt")
-	value := secondStar(content)
-	fmt.Printf("day  6.2 - lanternfishes after 256 days: %d\n", value)
+	utils.Star(6, 2, "lanternfishes after 256 days", secondStar)
 }
 
 func firstStar(content string) int {

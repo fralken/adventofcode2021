@@ -2,21 +2,16 @@ package day02
 
 import (
 	"aoc2021/utils"
-	"fmt"
 	"strconv"
 	"strings"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day02.txt")
-	value := firstStar(content)
-	fmt.Printf("day  2.1 - final horizontal position * final depth: %d\n", value)
+	utils.Star(2, 1, "final horizontal position * final depth", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day02.txt")
-	value := secondStar(content)
-	fmt.Printf("day  2.2 - final horizontal position * final depth: %d\n", value)
+	utils.Star(2, 2, "final horizontal position * final depth", secondStar)
 }
 
 func firstStar(content string) int {

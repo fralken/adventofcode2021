@@ -2,21 +2,16 @@ package day09
 
 import (
 	"aoc2021/utils"
-	"fmt"
 	"sort"
 	"strings"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day09.txt")
-	value := firstStar(content)
-	fmt.Printf("day  9.1 - sum of risk levels: %d\n", value)
+	utils.Star(9, 1, "sum of risk levels", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day09.txt")
-	value := secondStar(content)
-	fmt.Printf("day  9.2 - product of sizes of three largest basins: %d\n", value)
+	utils.Star(9, 2, "product of sizes of three largest basins", secondStar)
 }
 
 func firstStar(content string) int {

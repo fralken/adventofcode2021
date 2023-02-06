@@ -2,21 +2,16 @@ package day12
 
 import (
 	"aoc2021/utils"
-	"fmt"
 	"strings"
 	"unicode"
 )
 
 func FirstStar() {
-	content := utils.ReadFile("./input/day12.txt")
-	value := firstStar(content)
-	fmt.Printf("day 12.1 - number of paths: %d\n", value)
+	utils.Star(12, 1, "number of paths", firstStar)
 }
 
 func SecondStar() {
-	content := utils.ReadFile("./input/day12.txt")
-	value := secondStar(content)
-	fmt.Printf("day 12.2 - number of paths: %d\n", value)
+	utils.Star(12, 2, "number of paths", secondStar)
 }
 
 func firstStar(content string) int {
